@@ -155,6 +155,18 @@
 #define BOARD_SPI_SCK             (1 << BOARD_IOID_SPI_SCK)
 #define BOARD_SPI_MOSI            (1 << BOARD_IOID_SPI_MOSI)
 #define BOARD_SPI_MISO            (1 << BOARD_IOID_SPI_MISO)
+/*---------------------------------------------------------------------------*/
+// SPI Chip Select for Enc26j80
+#define BOARD_IOID_SPI_ETHERNET_CS       BOARD_IOID_LCD_CS
+#define BOARD_IOID_SPI_ETHERNET_RST      BOARD_IOID_LCD_RST
+#define BOARD_SPI_ETHERNET_CS            (1 << BOARD_IOID_SPI_ETHERNET_CS)
+#define BOARD_SPI_ETHERNET_RST           (1 << BOARD_IOID_SPI_ETHERNET_RST)
+/*---------------------------------------------------------------------------*/
+/*
+ * TODO: Change board-spi-close to be generic
+ * For now just mapping to use the same common code
+ * */
+#define BOARD_IOID_SPI_CLK_FLASH  BOARD_IOID_SPI_SCK
 /** @} */
 /*---------------------------------------------------------------------------*/
 /**

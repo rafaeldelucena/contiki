@@ -51,30 +51,16 @@ cd contiki
 git submodule update --init
 ```
 
-## Build mqtt clients:
-
-The Texas Instrument example based (this example has the mqtt build in contiki),
-```
-echo 'based on ~/contiki/examples/cc26xx/cc26xx-web-demo/mqtt-client.c'
-cp mqtt-client ~/contiki/examples/
-cd ~/contiki/examples/mqtt-client
-make TARGET=native
-```
-
-With external client library:
-
-```
-cp mqtt-client-external-lib ~/contiki/examples/ -R
-cd ~/contiki/apps
-git clone https://github.com/esar/contiki-mqtt mqtt-service
-cd ~/contiki/examples/mqtt-client-external-lib
-make TARGET=native
-```
-
 ## Build Instructions
 
+### Build for attom platform
+These make commands are executed inside a choosen project from default contiki examples directory.
+
+```
+make TARGET=srf06-cc26xx BOARD=attom/cc1310
+```
+
 ### Build for cc13xx with development board
-This command is most executed inside a choosen project from default contiki examples directory.
 
 ```
 make TARGET=srf06-cc26xx BOARD=srf06/cc13xx
@@ -84,15 +70,6 @@ make TARGET=srf06-cc26xx BOARD=srf06/cc13xx
 Make sure that your border router and the motes are on same rf channel.
 
 ### Change RF Channel
-
-#### 6LBR Border Router
-
-
-For the border router application you can set the rf channel with the commando bellow:
-
-```
-$ /usr/lib/6lbr/bin/nvm_tool --update --channel 25 /etc/6lbr/nvm.dat
-```
 
 #### Mote
 
@@ -109,17 +86,3 @@ Edit the file (~/contiki/cpu/cc26xx-cc13xx/rf-core/dot-15-4g.h) and change for a
 ```
 #define DOT_15_4G_CONF_FREQUENCY_BAND_ID DOT_15_4G_FREQUENCY_BAND_915
 ```
-
-## Simulation Stuff
-If you have some trouble with missing modules even after the build step, make sure that you have these projects on (~/.cooja.user.properties) from [Interfacing 6LBR with a Simulated WSN](https://github.com/cetic/6lbr/wiki/COOJA-Interface).
-```
-DEFAULT_PROJECTDIRS=[APPS_DIR]/mrm;[APPS_DIR]/mspsim;[APPS_DIR]/avrora;[APPS_DIR]/serial_socket;[APPS_DIR]/collect-view;[APPS_DIR]/powertracker;[APPS_DIR]/serial2pty;[APPS_DIR]/radiologger-headless
-```
-## Useful Links
-### Useful examples for CC26XX and CC13XX
-http://processors.wiki.ti.com/index.php/Cc26xx_sw_examples
-
-### Useful documentations
-https://github.com/contiki-os/contiki/wiki
-
-https://github.com/cetic/6lbr/wiki

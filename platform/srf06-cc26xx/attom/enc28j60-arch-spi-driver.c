@@ -31,6 +31,7 @@ enc28j60_arch_spi_deselect(void)
 void
 enc28j60_arch_spi_write(uint8_t output)
 {
+  leds_toggle(LEDS_BLUE);
   if (!board_spi_write(&output, sizeof(uint8_t))) {
     leds_on(LEDS_RED);
     printf("[ERROR] %s\r\n", __PRETTY_FUNCTION__);
@@ -41,6 +42,7 @@ uint8_t
 enc28j60_arch_spi_read(void)
 {
   uint8_t buf;
+  leds_toggle(LEDS_GREEN);
   if (!board_spi_read(&buf, sizeof(uint8_t))) {
     leds_on(LEDS_RED);
     printf("[ERROR] %s\r\n", __PRETTY_FUNCTION__);

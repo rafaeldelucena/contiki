@@ -1,7 +1,5 @@
 CONTIKI_PROJECT = attom-gateway
 
-MODULES += core/net/ip64
-
 all: $(CONTIKI_PROJECT)
 
 DEFINES += PROJECT_CONF_H=\"project-conf.h\"

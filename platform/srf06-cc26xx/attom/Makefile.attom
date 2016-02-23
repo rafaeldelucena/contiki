@@ -1,5 +1,7 @@
 CFLAGS += -DBOARD_SMARTRF06EB=1 -DBOARD_ATTOM=1
 
-CONTIKI_TARGET_DIRS += attom common 
+CONTIKI_TARGET_DIRS += attom common
 
-BOARD_SOURCEFILES += leds-arch.c srf06-sensors.c button-sensor.c board.c board-spi.c
+BOARD_SOURCEFILES += leds-arch.c srf06-sensors.c button-sensor.c board.c board-spi.c enc28j60-arch-spi-driver.c
+
+MODULES += dev/enc28j60

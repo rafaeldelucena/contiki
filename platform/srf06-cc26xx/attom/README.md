@@ -16,7 +16,7 @@ apt-get install binutils-arm-none-eabi gcc-arm-none-eabi gdb-arm-none-eabi libne
 ```
 
 
-The toolchain must be at 4.8.4 or higher.
+The toolchain version must be at 4.8.4 or higher.
 ```
 rafael@backbone:~/work/atto/attom$ apt-cache show gcc-arm-none-eabi
 Package: gcc-arm-none-eabi

@@ -5,3 +5,4 @@ CONTIKI_TARGET_DIRS += attom common
 BOARD_SOURCEFILES += leds-arch.c srf06-sensors.c button-sensor.c board.c board-spi.c enc28j60-arch-spi-driver.c
 
 MODULES += dev/enc28j60
+MODULES += core/net/ip64

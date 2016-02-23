@@ -159,6 +159,7 @@
 // SPI Chip Select for Enc26j80
 #define BOARD_IOID_SPI_ETHERNET_CS       BOARD_IOID_LCD_CS
 #define BOARD_IOID_SPI_ETHERNET_RST      BOARD_IOID_LCD_RST
+#define BOARD_IOID_SPI_ETHERNET_CLK      BOARD_IOID_LCD_SCK
 #define BOARD_SPI_ETHERNET_CS            (1 << BOARD_IOID_SPI_ETHERNET_CS)
 #define BOARD_SPI_ETHERNET_RST           (1 << BOARD_IOID_SPI_ETHERNET_RST)
 /*---------------------------------------------------------------------------*/

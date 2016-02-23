@@ -45,9 +45,9 @@ PROCESS_THREAD(hello_world_spi_process, ev, data)
 
     PROCESS_PAUSE();
   }
-  
+
   board_spi_close();
-  
+
   PROCESS_END();
 }
 /*---------------------------------------------------------------------------*/

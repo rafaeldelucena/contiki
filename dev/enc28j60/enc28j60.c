@@ -34,7 +34,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define DEBUG 0
+#define DEBUG 1
 #if DEBUG
 #define PRINTF(...) printf(__VA_ARGS__)
 #else
@@ -665,6 +665,31 @@ enc28j60_read(uint8_t *buffer, uint16_t bufsize)
   received_packets++;
   PRINTF("enc28j60: received_packets %d\n", received_packets);
   return len;
+}
+/*---------------------------------------------------------------------------*/
+void enc28j60_get_mac_address(uint8_t *mac_addr)
+{
+  /* Set MAC address */
+  setregbank(MAADRX_BANK);
+  mac_addr[0] = readreg(MAADR1);
+  mac_addr[1] = readreg(MAADR2);
+  mac_addr[2] = readreg(MAADR3);
+  mac_addr[3] = readreg(MAADR4);
+  mac_addr[4] = readreg(MAADR5);
+  mac_addr[5] = readreg(MAADR6);
+}
+/*---------------------------------------------------------------------------*/
+void enc28j60_set_mac_address(uint8_t *mac_addr)
+{
+  /* Set MAC address */
+  setregbank(MAADRX_BANK);
+  writereg(MAADR6, mac_addr[5]);
+  writereg(MAADR5, mac_addr[4]);
+  writereg(MAADR4, mac_addr[3]);
+  writereg(MAADR3, mac_addr[2]);
+  writereg(MAADR2, mac_addr[1]);
+  writereg(MAADR1, mac_addr[0]);
+
 }
 /*---------------------------------------------------------------------------*/
 PROCESS_THREAD(enc_watchdog_process, ev, data)

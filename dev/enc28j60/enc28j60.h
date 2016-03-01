@@ -33,6 +33,8 @@
 #define ENC28J60_H
 
 void enc28j60_init(uint8_t *mac_addr);
+void enc28j60_get_mac_address(uint8_t *mac_addr);
+void enc28j60_set_mac_address(uint8_t *mac_addr);
 
 int enc28j60_send(uint8_t *data, uint16_t datalen);
 
